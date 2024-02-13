@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyClX9mWfFBqz5psrqsIgMm4L93QwoZg-jQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>260455920593</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>uz.gita.nasiyaApp</string>
+	<key>PROJECT_ID</key>
+	<string>nasiya-63d22</string>
+	<key>STORAGE_BUCKET</key>
+	<string>nasiya-63d22.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:260455920593:ios:0051bb6f12df508f2166f0</string>
+</dict>
+</plist>

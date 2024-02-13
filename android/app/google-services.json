@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "260455920593",
+    "project_id": "nasiya-63d22",
+    "storage_bucket": "nasiya-63d22.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:260455920593:android:3a43dedbe74607c32166f0",
+        "android_client_info": {
+          "package_name": "uz.gita.nasiya_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3fap5VxI1N_naFdDpp_h4tq-xTdJXptw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
