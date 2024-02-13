@@ -4,7 +4,7 @@ part of 'add_employee_bloc.dart';
 abstract class AddEmployeeEvent {}
 
 class AddEmployee extends AddEmployeeEvent {
-  EmployeeModel employeeModel;
+  final EmployeeModel employeeModel;
 
   AddEmployee(this.employeeModel);
 }

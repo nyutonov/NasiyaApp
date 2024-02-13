@@ -6,67 +6,67 @@ abstract class AddSaleEvent {}
 class Init extends AddSaleEvent {}
 
 class SelectClient extends AddSaleEvent {
-  ClientModel clientModel;
+  final ClientModel clientModel;
 
   SelectClient(this.clientModel);
 }
 
 class SelectGuarantor extends AddSaleEvent {
-  ClientModel clientModel;
+  final ClientModel clientModel;
 
   SelectGuarantor(this.clientModel);
 }
 
 class SelectMoneyType extends AddSaleEvent {
-  String moneyType;
+  final String moneyType;
 
   SelectMoneyType(this.moneyType);
 }
 
 class ChangeName extends AddSaleEvent {
-  String name;
+  final String name;
 
   ChangeName(this.name);
 }
 
 class ChangePrice extends AddSaleEvent {
-  int price;
+  final int price;
 
   ChangePrice(this.price);
 }
 
 class ChangePercent extends AddSaleEvent {
-  int percent;
+  final int percent;
 
   ChangePercent(this.percent);
 }
 
 class ChangeStartingPrice extends AddSaleEvent {
-  int startingPrice;
+  final int startingPrice;
 
   ChangeStartingPrice(this.startingPrice);
 }
 
 class ChangeCountSale extends AddSaleEvent {
-  int countSale;
+  final int countSale;
 
   ChangeCountSale(this.countSale);
 }
 
 class ChangeComment extends AddSaleEvent {
-  String comment;
+  final String comment;
 
   ChangeComment(this.comment);
 }
 
 class ChangeStartingDate extends AddSaleEvent {
-  DateTime startingDate;
+  final DateTime startingDate;
 
   ChangeStartingDate(this.startingDate);
 }
 
 class ChangeSmsSend extends AddSaleEvent {
-  bool isSend;
+  final bool isSend;
 
   ChangeSmsSend(this.isSend);
 }

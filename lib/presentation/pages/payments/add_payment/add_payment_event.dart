@@ -8,25 +8,25 @@ class Init extends AddPaymentEvent {}
 class AddPayment extends AddPaymentEvent {}
 
 class SelectClient extends AddPaymentEvent {
-  ClientModel clientModel;
+  final ClientModel clientModel;
 
   SelectClient(this.clientModel);
 }
 
 class SelectProduct extends AddPaymentEvent {
-  SaleModel saleModel;
+  final SaleModel saleModel;
 
   SelectProduct(this.saleModel);
 }
 
 class ChangeQuantity extends AddPaymentEvent {
-  int quantity;
+  final int quantity;
 
   ChangeQuantity(this.quantity);
 }
 
 class SelectPaymentType extends AddPaymentEvent {
-  String paymentType;
+  final String paymentType;
 
   SelectPaymentType(this.paymentType);
 }

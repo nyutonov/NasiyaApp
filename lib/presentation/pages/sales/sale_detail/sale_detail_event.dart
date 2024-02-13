@@ -4,7 +4,7 @@ part of 'sale_detail_bloc.dart';
 abstract class SaleDetailEvent {}
 
 class Init extends SaleDetailEvent {
-  String id;
+  final String id;
 
   Init(this.id);
 }

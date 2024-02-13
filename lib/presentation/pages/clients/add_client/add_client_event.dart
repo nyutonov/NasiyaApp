@@ -4,7 +4,7 @@ part of 'add_client_bloc.dart';
 abstract class AddClientEvent {}
 
 class AddClient extends AddClientEvent {
-  ClientModel clientModel;
+  final ClientModel clientModel;
 
   AddClient(this.clientModel);
 }
