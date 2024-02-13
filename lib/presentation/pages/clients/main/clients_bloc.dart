@@ -2,8 +2,8 @@ import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:nasiya_app/utils/constants.dart';
 
-import '../../../data/model/client_model.dart';
-import '../../../utils/status.dart';
+import '../../../../data/model/client_model.dart';
+import '../../../../utils/status.dart';
 
 part 'clients_event.dart';
 part 'clients_state.dart';

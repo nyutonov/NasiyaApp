@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:nasiya_app/presentation/pages/clients/clients_page.dart';
-import 'package:nasiya_app/presentation/pages/payments/payments_page.dart';
 
-import '../employees/employees_page.dart';
-import '../sales/sales_page.dart';
+import '../clients/main/clients_page.dart';
+import '../employees/main/employees_page.dart';
+import '../payments/main/payments_page.dart';
+import '../sales/main/sales_page.dart';
 
 class BottomNavigationPage extends StatefulWidget {
   const BottomNavigationPage({super.key});

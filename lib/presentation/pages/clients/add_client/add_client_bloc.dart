@@ -3,7 +3,7 @@ import 'package:meta/meta.dart';
 import 'package:nasiya_app/data/model/client_model.dart';
 import 'package:nasiya_app/utils/constants.dart';
 
-import '../../../utils/status.dart';
+import '../../../../utils/status.dart';
 
 part 'add_client_event.dart';
 part 'add_client_state.dart';

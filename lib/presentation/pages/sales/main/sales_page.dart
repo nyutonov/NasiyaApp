@@ -1,30 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:nasiya_app/presentation/pages/payments/payments_bloc.dart';
+import 'package:nasiya_app/presentation/components/custom_app_bar.dart';
+import 'package:nasiya_app/presentation/pages/sales/main/sales_bloc.dart';
+import 'package:nasiya_app/utils/my_utils.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-import '../../../utils/status.dart';
-import '../../components/custom_app_bar.dart';
-import '../../components/payment_item.dart';
+import '../../../../utils/status.dart';
+import '../../../components/sale_item.dart';
 
-class PaymentsPage extends StatefulWidget {
-  const PaymentsPage({super.key});
+class SalesPage extends StatefulWidget {
+  const SalesPage({super.key});
 
   @override
-  State<PaymentsPage> createState() => _PaymentsPageState();
+  State<SalesPage> createState() => _SalesPageState();
 }
 
-class _PaymentsPageState extends State<PaymentsPage> {
-  final bloc = PaymentsBloc();
+class _SalesPageState extends State<SalesPage> {
   final _refreshController = RefreshController();
   final _refreshControllerForListView = RefreshController();
+  final bloc = SalesBloc();
 
   @override
   void initState() {
     super.initState();
 
     bloc.add(Init());
+
+    Utils.requestPermission();
   }
 
   @override
@@ -39,11 +42,11 @@ class _PaymentsPageState extends State<PaymentsPage> {
     return BlocProvider.value(
       value: bloc,
       child: Scaffold(
-        appBar: CustomAppBar(title: 'To\'lovlar'),
+        appBar: CustomAppBar(title: 'Sotuvlar'),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             Navigator
-                .pushNamed(context, '/add_payment')
+                .pushNamed(context, '/add_sale')
                 .whenComplete(() => bloc.add(Init()));
           },
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
@@ -53,7 +56,7 @@ class _PaymentsPageState extends State<PaymentsPage> {
             color: Colors.white,
           ),
         ),
-        body: BlocConsumer<PaymentsBloc, PaymentsState>(
+        body: BlocConsumer<SalesBloc, SalesState>(
           listener: (context, state) {
             if (state.status != Status.LOADING) {
               _refreshController.refreshCompleted();
@@ -91,11 +94,11 @@ class _PaymentsPageState extends State<PaymentsPage> {
                           controller: _refreshControllerForListView,
                           onRefresh: () => bloc.add(Init()),
                           child: ListView.builder(
-                              itemCount: state.payments?.length,
-                              physics: const BouncingScrollPhysics(),
-                              itemBuilder: (context, index) => PaymentItem(
-                                paymentModel: state.payments?[index],
-                              )
+                            itemCount: state.sales?.length,
+                            physics: const BouncingScrollPhysics(),
+                            itemBuilder: (context, index) => SaleItem(
+                              saleModel: state.sales?[index],
+                            )
                           ),
                         );
                       }

@@ -4,10 +4,9 @@ import 'package:meta/meta.dart';
 import 'package:nasiya_app/data/model/client_model.dart';
 import 'package:nasiya_app/data/model/sale_model.dart';
 import 'package:nasiya_app/utils/constants.dart';
-import 'package:workmanager/workmanager.dart';
 
-import '../../../utils/my_utils.dart';
-import '../../../utils/status.dart';
+import '../../../../utils/my_utils.dart';
+import '../../../../utils/status.dart';
 
 part 'add_sale_event.dart';
 part 'add_sale_state.dart';

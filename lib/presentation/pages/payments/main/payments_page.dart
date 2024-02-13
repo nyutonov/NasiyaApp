@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:nasiya_app/presentation/pages/clients/clients_bloc.dart';
+import 'package:nasiya_app/presentation/pages/payments/main/payments_bloc.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-import '../../../utils/status.dart';
-import '../../components/client_item.dart';
-import '../../components/custom_app_bar.dart';
+import '../../../../utils/status.dart';
+import '../../../components/custom_app_bar.dart';
+import '../../../components/payment_item.dart';
 
-class ClientsPage extends StatefulWidget {
-  const ClientsPage({super.key});
+class PaymentsPage extends StatefulWidget {
+  const PaymentsPage({super.key});
 
   @override
-  State<ClientsPage> createState() => _ClientsPageState();
+  State<PaymentsPage> createState() => _PaymentsPageState();
 }
 
-class _ClientsPageState extends State<ClientsPage> {
-  final bloc = ClientsBloc();
+class _PaymentsPageState extends State<PaymentsPage> {
+  final bloc = PaymentsBloc();
   final _refreshController = RefreshController();
   final _refreshControllerForListView = RefreshController();
 
@@ -39,11 +39,11 @@ class _ClientsPageState extends State<ClientsPage> {
     return BlocProvider.value(
       value: bloc,
       child: Scaffold(
-        appBar: CustomAppBar(title: 'Mijozlar'),
+        appBar: CustomAppBar(title: 'To\'lovlar'),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             Navigator
-                .pushNamed(context, '/add_client')
+                .pushNamed(context, '/add_payment')
                 .whenComplete(() => bloc.add(Init()));
           },
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
@@ -53,7 +53,7 @@ class _ClientsPageState extends State<ClientsPage> {
             color: Colors.white,
           ),
         ),
-        body: BlocConsumer<ClientsBloc, ClientsState>(
+        body: BlocConsumer<PaymentsBloc, PaymentsState>(
           listener: (context, state) {
             if (state.status != Status.LOADING) {
               _refreshController.refreshCompleted();
@@ -91,10 +91,10 @@ class _ClientsPageState extends State<ClientsPage> {
                           controller: _refreshControllerForListView,
                           onRefresh: () => bloc.add(Init()),
                           child: ListView.builder(
-                              itemCount: state.clients?.length,
+                              itemCount: state.payments?.length,
                               physics: const BouncingScrollPhysics(),
-                              itemBuilder: (context, index) => ClientItem(
-                                clientModel: state.clients?[index],
+                              itemBuilder: (context, index) => PaymentItem(
+                                paymentModel: state.payments?[index],
                               )
                           ),
                         );

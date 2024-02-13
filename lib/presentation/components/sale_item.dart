@@ -4,13 +4,13 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 
 import '../../data/model/sale_model.dart';
-import '../pages/sale_detail/sale_detail_bloc.dart';
-import '../pages/sale_detail/sale_detail_page.dart';
+import '../pages/sales/sale_detail/sale_detail_bloc.dart';
+import '../pages/sales/sale_detail/sale_detail_page.dart';
 
 class SaleItem extends StatelessWidget {
-  SaleModel? saleModel;
+  final SaleModel? saleModel;
 
-  SaleItem({
+  const SaleItem({
     super.key,
     required this.saleModel
   });

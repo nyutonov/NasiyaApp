@@ -3,15 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nasiya_app/presentation/components/custom_app_bar.dart';
-import 'package:nasiya_app/presentation/pages/sale_detail/sale_detail_bloc.dart';
+import 'package:nasiya_app/presentation/pages/sales/sale_detail/sale_detail_bloc.dart';
 
-import '../../../data/model/sale_model.dart';
-import '../../../utils/status.dart';
+import '../../../../data/model/sale_model.dart';
+import '../../../../utils/status.dart';
 
 class SaleDetailPage extends StatefulWidget {
-  SaleModel? saleModel;
+  final SaleModel? saleModel;
 
-  SaleDetailPage({super.key, required this.saleModel});
+  const SaleDetailPage({super.key, required this.saleModel});
 
   @override
   State<SaleDetailPage> createState() => _SaleDetailPageState();
@@ -64,7 +64,7 @@ class _SaleDetailPageState extends State<SaleDetailPage> {
                         ),
                         Row(
                           children: [
-                            Text('Mijoz: '),
+                            const Text('Mijoz: '),
                             TextButton(
                                 onPressed: () {},
                                 child: Text(widget.saleModel?.client ?? '')
@@ -73,7 +73,7 @@ class _SaleDetailPageState extends State<SaleDetailPage> {
                         ),
                         Row(
                           children: [
-                            Text('Kafil: '),
+                            const Text('Kafil: '),
                             TextButton(
                                 onPressed: () {},
                                 child: Text(widget.saleModel?.guarantor ?? '')

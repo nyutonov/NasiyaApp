@@ -2,8 +2,8 @@ import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
 import 'package:nasiya_app/data/model/employee_model.dart';
 
-import '../../../utils/constants.dart';
-import '../../../utils/status.dart';
+import '../../../../utils/constants.dart';
+import '../../../../utils/status.dart';
 
 part 'add_employee_event.dart';
 part 'add_employee_state.dart';

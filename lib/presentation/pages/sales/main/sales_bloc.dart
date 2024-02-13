@@ -3,7 +3,7 @@ import 'package:meta/meta.dart';
 import 'package:nasiya_app/data/model/sale_model.dart';
 import 'package:nasiya_app/utils/constants.dart';
 
-import '../../../utils/status.dart';
+import '../../../../utils/status.dart';
 
 part 'sales_event.dart';
 part 'sales_state.dart';

@@ -7,8 +7,8 @@ import 'package:nasiya_app/data/model/sale_model.dart';
 import 'package:nasiya_app/presentation/components/custom_app_bar.dart';
 import 'package:nasiya_app/utils/constants.dart';
 
-import '../../../data/model/client_model.dart';
-import '../../../utils/status.dart';
+import '../../../../data/model/client_model.dart';
+import '../../../../utils/status.dart';
 import 'add_payment_bloc.dart';
 
 class AddPaymentPage extends StatefulWidget {

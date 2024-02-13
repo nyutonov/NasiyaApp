@@ -1,33 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:nasiya_app/presentation/components/custom_app_bar.dart';
-import 'package:nasiya_app/presentation/pages/sales/sales_bloc.dart';
-import 'package:nasiya_app/utils/my_utils.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-import '../../../utils/status.dart';
-import '../../components/sale_item.dart';
+import '../../../../utils/status.dart';
+import '../../../components/client_item.dart';
+import '../../../components/custom_app_bar.dart';
+import 'clients_bloc.dart';
 
-class SalesPage extends StatefulWidget {
-  const SalesPage({super.key});
+class ClientsPage extends StatefulWidget {
+  const ClientsPage({super.key});
 
   @override
-  State<SalesPage> createState() => _SalesPageState();
+  State<ClientsPage> createState() => _ClientsPageState();
 }
 
-class _SalesPageState extends State<SalesPage> {
+class _ClientsPageState extends State<ClientsPage> {
+  final bloc = ClientsBloc();
   final _refreshController = RefreshController();
   final _refreshControllerForListView = RefreshController();
-  final bloc = SalesBloc();
 
   @override
   void initState() {
     super.initState();
 
     bloc.add(Init());
-
-    Utils.requestPermission();
   }
 
   @override
@@ -42,11 +39,11 @@ class _SalesPageState extends State<SalesPage> {
     return BlocProvider.value(
       value: bloc,
       child: Scaffold(
-        appBar: CustomAppBar(title: 'Sotuvlar'),
+        appBar: CustomAppBar(title: 'Mijozlar'),
         floatingActionButton: FloatingActionButton(
           onPressed: () {
             Navigator
-                .pushNamed(context, '/add_sale')
+                .pushNamed(context, '/add_client')
                 .whenComplete(() => bloc.add(Init()));
           },
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
@@ -56,7 +53,7 @@ class _SalesPageState extends State<SalesPage> {
             color: Colors.white,
           ),
         ),
-        body: BlocConsumer<SalesBloc, SalesState>(
+        body: BlocConsumer<ClientsBloc, ClientsState>(
           listener: (context, state) {
             if (state.status != Status.LOADING) {
               _refreshController.refreshCompleted();
@@ -94,11 +91,11 @@ class _SalesPageState extends State<SalesPage> {
                           controller: _refreshControllerForListView,
                           onRefresh: () => bloc.add(Init()),
                           child: ListView.builder(
-                            itemCount: state.sales?.length,
-                            physics: const BouncingScrollPhysics(),
-                            itemBuilder: (context, index) => SaleItem(
-                              saleModel: state.sales?[index],
-                            )
+                              itemCount: state.clients?.length,
+                              physics: const BouncingScrollPhysics(),
+                              itemBuilder: (context, index) => ClientItem(
+                                clientModel: state.clients?[index],
+                              )
                           ),
                         );
                       }

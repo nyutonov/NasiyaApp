@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:nasiya_app/presentation/pages/employees/employees_bloc.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-import '../../../utils/status.dart';
-import '../../components/custom_app_bar.dart';
-import '../../components/employee_item.dart';
+import '../../../../utils/status.dart';
+import '../../../components/custom_app_bar.dart';
+import '../../../components/employee_item.dart';
+import 'employees_bloc.dart';
 
 class EmployeesPage extends StatefulWidget {
   const EmployeesPage({super.key});

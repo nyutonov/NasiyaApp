@@ -4,9 +4,9 @@ import 'package:meta/meta.dart';
 import 'package:nasiya_app/data/model/payment_model.dart';
 import 'package:nasiya_app/utils/constants.dart';
 
-import '../../../data/model/client_model.dart';
-import '../../../data/model/sale_model.dart';
-import '../../../utils/status.dart';
+import '../../../../data/model/client_model.dart';
+import '../../../../data/model/sale_model.dart';
+import '../../../../utils/status.dart';
 
 part 'add_payment_event.dart';
 part 'add_payment_state.dart';

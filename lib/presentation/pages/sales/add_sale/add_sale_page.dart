@@ -7,7 +7,7 @@ import 'package:nasiya_app/data/model/client_model.dart';
 import 'package:nasiya_app/presentation/components/custom_app_bar.dart';
 import 'package:nasiya_app/utils/constants.dart';
 
-import '../../../utils/status.dart';
+import '../../../../utils/status.dart';
 import 'add_sale_bloc.dart';
 
 class AddSalePage extends StatefulWidget {

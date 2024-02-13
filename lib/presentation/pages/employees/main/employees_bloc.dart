@@ -3,7 +3,7 @@ import 'package:meta/meta.dart';
 import 'package:nasiya_app/data/model/employee_model.dart';
 import 'package:nasiya_app/utils/constants.dart';
 
-import '../../../utils/status.dart';
+import '../../../../utils/status.dart';
 
 part 'employees_event.dart';
 part 'employees_state.dart';

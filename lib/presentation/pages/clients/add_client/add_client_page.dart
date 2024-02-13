@@ -2,41 +2,42 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:nasiya_app/data/model/client_model.dart';
 
-import '../../../data/model/employee_model.dart';
-import '../../../utils/status.dart';
-import '../../components/custom_app_bar.dart';
-import 'add_employee_bloc.dart';
+import '../../../../utils/my_utils.dart';
+import '../../../../utils/status.dart';
+import '../../../components/custom_app_bar.dart';
+import 'add_client_bloc.dart';
 
-class AddEmployeePage extends StatefulWidget {
-  const AddEmployeePage({super.key});
+class AddClientPage extends StatefulWidget {
+  const AddClientPage({super.key});
 
   @override
-  State<AddEmployeePage> createState() => _AddEmployeePageState();
+  State<AddClientPage> createState() => _AddClientPageState();
 }
 
-class _AddEmployeePageState extends State<AddEmployeePage> {
+class _AddClientPageState extends State<AddClientPage> {
   TextEditingController nameController = TextEditingController();
-  TextEditingController emailOrPhoneNumberController = TextEditingController();
+  TextEditingController phoneNumberController = TextEditingController(text: '+998 ');
 
-  late AddEmployeeBloc bloc;
+  late AddClientBloc bloc;
 
   @override
   void initState() {
     super.initState();
 
-    bloc = BlocProvider.of<AddEmployeeBloc>(context);
+    bloc = BlocProvider.of<AddClientBloc>(context);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: CustomAppBar(
-          title: "Yangi hodim qo'shish",
+          title: "Yangi mijoz qo'shish",
         ),
         body: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: BlocConsumer<AddEmployeeBloc, AddEmployeeState>(
+            child: BlocConsumer<AddClientBloc, AddClientState>(
               listener: (context, state) {
                 if (state.status == Status.SUCCESS) {
                   Navigator.pop(context);
@@ -63,10 +64,10 @@ class _AddEmployeePageState extends State<AddEmployeePage> {
                           maxLength: 20,
                         ),
                         TextField(
-                          controller: emailOrPhoneNumberController,
+                          controller: phoneNumberController,
                           style: GoogleFonts.poppins(),
                           decoration: InputDecoration(
-                            labelText: 'Telefon raqam yoki email pochta',
+                            labelText: 'Telefon raqami',
                             hintStyle: GoogleFonts.poppins(fontSize: 14),
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(12)
@@ -74,10 +75,11 @@ class _AddEmployeePageState extends State<AddEmployeePage> {
                             isDense: true,
                           ),
                           inputFormatters: <TextInputFormatter>[
-
+                            PhoneNumberTextInputFormatter()
                           ],
-                          maxLength: 30,
+                          maxLength: 17,
                           maxLines: 1,
+                          keyboardType: TextInputType.phone,
                         ),
                       ]),
                     ),
@@ -91,13 +93,13 @@ class _AddEmployeePageState extends State<AddEmployeePage> {
                           child: FilledButton(
                             onPressed: () {
                               if (
-                                nameController.text.isNotEmpty &&
-                                emailOrPhoneNumberController.text.length > 5
+                                  nameController.text.isNotEmpty &&
+                                  phoneNumberController.text.length == 17
                               ) {
-                                bloc.add(AddEmployee(EmployeeModel(
-                                    id: DateTime.now().millisecondsSinceEpoch.toString(),
-                                    name: nameController.text,
-                                    emailOrPhoneNumber: emailOrPhoneNumberController.text
+                                bloc.add(AddClient(ClientModel(
+                                  id: DateTime.now().millisecondsSinceEpoch.toString(),
+                                  name: nameController.text,
+                                  phoneNumber: phoneNumberController.text
                                 )));
                               } else {
                                 ScaffoldMessenger
